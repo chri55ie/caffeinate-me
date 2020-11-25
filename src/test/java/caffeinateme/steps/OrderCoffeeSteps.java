@@ -36,7 +36,7 @@ public class OrderCoffeeSteps {
     public void barry_should_receive_the_order() {
 
 
-        assertThat(coffeeShop.getPendingOrders().contains(cathy));
+        assert (coffeeShop.getPendingOrders().contains(order));
     }
 
     @Then("Barry should know that the order is {}")

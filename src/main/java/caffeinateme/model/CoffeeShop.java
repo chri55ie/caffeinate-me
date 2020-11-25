@@ -4,7 +4,6 @@ import java.util.*;
 
 public class CoffeeShop {
 
-
     private Queue<Order> orders = new LinkedList<>();
 
     public void placeOrder(Order order, int distanceInMetres) {
@@ -14,8 +13,9 @@ public class CoffeeShop {
         }
         else if (distanceInMetres >= 50 && distanceInMetres <= 300) {
 
-            order = order.withStatus(OrderStatus.Normal);
+            order = order.withStatus(OrderStatus.High);
         }
+        else order = order.withStatus((OrderStatus.Normal));
 
         orders.add(order);
 
