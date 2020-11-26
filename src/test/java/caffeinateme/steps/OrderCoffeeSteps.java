@@ -1,20 +1,11 @@
 package caffeinateme.steps;
 
-import caffeinateme.model.CoffeeShop;
-import caffeinateme.model.Customer;
-import caffeinateme.model.Order;
-import caffeinateme.model.OrderStatus;
+import caffeinateme.model.*;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 
-import static org.hamcrest.MatcherAssert.assertThat;
-
-
-import java.util.Collection;
-import java.util.List;
-
-import static org.junit.Assert.*;
+import static org.assertj.core.api.Assertions.assertThat;
 
 public class OrderCoffeeSteps {
 
@@ -40,10 +31,10 @@ public class OrderCoffeeSteps {
     }
 
     @Then("Barry should know that the order is {}")
-    public void barry_should_know_that_the_order_is(String expectedStatus){
+    public void barry_should_know_that_the_order_is(OrderStatus expectedStatus){
         Order cathysOrder = coffeeShop.getOrderFor(cathy)
                 .orElseThrow(() -> new AssertionError("No Order Found!"));
-        assertThat(cathysOrder.getStatus().isEqualTo(expectedStatus));
+        assertThat(cathysOrder.getStatus()).isEqualTo(expectedStatus);
 
 
     }

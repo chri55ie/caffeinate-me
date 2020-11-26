@@ -8,4 +8,16 @@ Feature: Order a coffee
     Given Cathy is 100 metres from the coffee shop
     When Cathy orders a large cappuccino
     Then Barry should receive the order
-    And Barry should know that the order is Urgent
+    And Barry should know that the order is High
+
+  Scenario Outline: Buyer orders a coffee at different distances from the coffee shop
+    Given Cathy is <distanceInMeters> metres from the coffee shop
+    When Cathy orders a <OrderedProduct>
+    Then Barry should receive the order
+    And Barry should know that the order is <expectedStatus>
+    Examples:
+      | distanceInMeters | OrderedProduct  | expectedStatus |
+      | 50              | large cappuccino | Urgent         |
+      | 300             | large cappuccino | High           |
+      | 400             | large cappuccino | Normal         |
+
