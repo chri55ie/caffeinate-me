@@ -10,13 +10,14 @@ public class CoffeeShop {
         if (distanceInMetres <= 50) {
 
             order = order.withStatus(OrderStatus.Urgent);
-        }
-        else if (distanceInMetres >= 50 && distanceInMetres <= 300) {
 
-            order = order.withStatus(OrderStatus.High);
-        }
-        else order = order.withStatus((OrderStatus.Normal));
+        } else if (distanceInMetres > 50 && distanceInMetres <= 100 ){
 
+             order = order.withStatus((OrderStatus.High));
+    }
+        else {
+            order = order.withStatus((OrderStatus.Normal));
+        }
         orders.add(order);
 
     }

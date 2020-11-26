@@ -18,6 +18,5 @@ Feature: Order a coffee
     Examples:
       | distanceInMeters | OrderedProduct  | expectedStatus |
       | 50              | large cappuccino | Urgent         |
-      | 300             | large cappuccino | High           |
-      | 400             | large cappuccino | Normal         |
+      | 300             | large cappuccino | Normal         |
 
