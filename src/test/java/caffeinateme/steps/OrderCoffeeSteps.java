@@ -1,4 +1,4 @@
-package caffeinateme;
+package caffeinateme.steps;
 
 import caffeinateme.model.*;
 import io.cucumber.java.en.Given;
@@ -12,8 +12,8 @@ public class OrderCoffeeSteps {
     CoffeeShop coffeeShop = new CoffeeShop();
     Order order;
 
-    @Given("Cathy is {int} metres from the coffee shop")
-    public void cathy_is_metres_from_the_coffee_shop(Integer distanceInMetres) {
+    @Given("Cathy is {float} metres from the coffee shop")
+    public void cathy_is_metres_from_the_coffee_shop(float distanceInMetres) {
         cathy.setDistanceFromShop(distanceInMetres);
     }
 
@@ -28,7 +28,7 @@ public class OrderCoffeeSteps {
         assertThat(coffeeShop.getPendingOrders()).contains(order);
     }
 
-    @Then("^Barry should know that the order is (.*)")
+    @Then("Barry should know that the order is {word}")
     public void barry_should_know_that_the_order_is(OrderStatus expectedStatus) {
         assertThat(coffeeShop.getOrderFor(cathy)).isPresent();
         coffeeShop.getOrderFor(cathy).ifPresent(
