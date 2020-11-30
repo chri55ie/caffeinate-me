@@ -12,7 +12,7 @@ public class OrderCoffeeSteps {
     CoffeeShop coffeeShop = new CoffeeShop();
     Order order;
 
-    @Given("Cathy is {float} metres from the coffee shop")
+    @Given("Cathy is {float} metre(s) from the coffee shop")
     public void cathy_is_metres_from_the_coffee_shop(float distanceInMetres) {
         cathy.setDistanceFromShop(distanceInMetres);
     }
